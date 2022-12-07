@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #378E5B;
+    --secondary-color: #318052;
+    --tertiary-color: #2C734A;
+    --bg-sidebar: #292823;
+    --btn-color: #8EC547;
+    --bg-outlet: #F5F5F5;
+    --white: #FFFFFF;
+    --border-color: #D4D4D4;
+    --text-border-color: #8F8F8F;
+    --black: #000000;
+    --rose-color: #FF8080;
+    --yellow-color: #FFFF80;
+    --btn-secondary: #757575;
+}
