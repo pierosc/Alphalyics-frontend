@@ -12,19 +12,17 @@ import Cover from "./views/Cover";
 import Rentabilidad from "./views/Rentabilidad";
 import Invertibles from "./views/Invertibles";
 function App() {
-
-
   return (
     <>
-    <div className="App p-24">
-      <Cover/>
-      <TesisInversion/>
-      <Rebalanceo/>
-      <Fases/>
-      <Rentabilidad/>
-      <Invertibles/>
-    </div>
-    <Footer/>
+      <div className="App p-24">
+        <Cover />
+        <TesisInversion />
+        <Rebalanceo />
+        <Fases />
+        <Rentabilidad />
+        <Invertibles />
+      </div>
+      <Footer />
     </>
   );
 }
