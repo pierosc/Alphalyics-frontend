@@ -1,181 +1,140 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import axios from "axios";
-// import "./App.css";
-// import BarChart from "./components/BarChart";
+import "./Cover.css";
+
 import LineChart from "./../components/LineChart";
-// import PieChart from "./components/PieChart";
+
 import Datepicker from "flowbite-datepicker/Datepicker";
 import DateRangePicker from "flowbite-datepicker/DateRangePicker";
 import { UserData } from "./../Data";
-import { Datasp } from "./../Datasp";
+import {  Datasp } from "./../Datasp";
 import { ColorData } from "./../Colordata";
 import { lineHeight } from "@mui/system";
-// import TextField from '@mui/material/TextField';
+import { data } from "autoprefixer";
 
-// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-// import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-// import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-// import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-// import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 
 function Cover() {
-  const [alldata, setAlldata] = useState([
-    { date: "2007-01-03", indice_alphalytics: 1, indice_sp500: 1 },
-    { date: "2007-01-05", indice_alphalytics: 1.04, indice_sp500: 1.068 },
-  ]);
+
+  const [alldata, setAlldata] = useState([]);
+  const [alldata2, setAlldata2] = useState([]);
 
   const getData = async () => {
-    await axios.get("http://127.0.0.1:8000/api/v1/main/").then((response) => {
+    await axios.get("http://127.0.0.1:8000/api/v1/mainsp/").then((response) => {
       const data = response.data;
       console.log(data);
       setAlldata(data);
-      // setUserData({
-      //     // labels: UserData.map((data) => data.year),
-      //     datasets: [      {
-      //       label: 'Alphalytics',
-      //       data: alldata,
-      //       backgroundColor:'rgba(0,0,0,1)',
-      //       borderColor: 'rgba(0,0,0,1)',
-      //       tension:0.4,
-      //       parsing:{
-      //           xAxisKey:'date',
-      //           yAxisKey: 'indice_alphalytics'
-      //       },
-      //     },
-      //     {
-      //       label: 'SP 500',
-      //       data: alldata,
-      //       backgroundColor:'rgba(128,128,128,1)',
-      //       borderColor: 'rgba(128,128,128,1)',
-      //       tension:0.4,
-      //       parsing:{
-      //           xAxisKey:'date',
-      //           yAxisKey: 'indice_sp500'
-      //       },
-      //     }
-      //     // ,{
-      //     //   label: 'Colores',
-      //     //   data: UserData,
-      //     //   backgroundColor:
-
-      //     //   context =>{
-      //     //       const chart= context.chart;
-      //     //     //   console.log(context.chart)
-      //     //       const {ctx, chartArea, scales} = chart;
-      //     //       if(!chartArea){return null};
-      //     //       return getGradient(ctx, chartArea, scales)
-      //     //   },
-      //     //   borderColor:
-      //     //   context =>{
-      //     //       const chart= context.chart;
-      //     //     //   console.log(context.chart)
-      //     //       const {ctx, chartArea, scales} = chart;
-      //     //       if(!chartArea){return null};
-      //     //       return getGradient(ctx, chartArea, scales)
-      //     //   },
-      //     //   tension:0.4,
-      //     //   parsing:{
-      //     //       xAxisKey:'day',
-      //     //       yAxisKey: 'sales.food'
-      //     //   },
-      //     //   fill: true,
-      //     // }
-      // ],
-      //   })
     });
   };
+
+
   const getData2 = async () => {
     await axios
-      .get("http://127.0.0.1:8000/api/v1/maindetail/ ")
+      .get("http://127.0.0.1:8000/api/v1/mainalp/ ")
       .then((response) => {
         const data = response.data;
         console.log(data);
-        setAlldata(data);
+        setAlldata2(data);
       });
   };
+
   useEffect(() => {
     getData();
-    // getData2()
+    getData2()
   }, []);
 
-  const [value, setValue] = React.useState("2014-08-18T21:11:54");
 
-  const handleChange = (newValue) => {
-    setValue(newValue);
-  };
 
+  function updateConfigAsNewObject(chart) {
+    chart.options = {
+        responsive: true,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Chart.js'
+            }
+        },
+        scales: {
+            x: {
+                display: true
+            },
+            y: {
+                display: true
+            }
+        }
+    };
+    chart.update();
+}
+
+  // const [value, setValue] = React.useState(null);
+
+  // const handleChange = (newValue) => {
+  //   setValue(newValue);
+  // };
+  
+ 
   const [userData, setUserData] = useState({
-    // labels: UserData.map((data) => data.year),
+    labels: UserData.map((data) => data.date),
     datasets: [
       {
         type: "line",
-        //   label: 'Alphalytics',
-        //   data: [{x:'2016-12-25',y:2},{x:'2016-12-26',y:5},{x:'2016-12-28',y:7},{x:'2016-12-30',y:5}],
-        data: [
-          { x: 1, y: 2 },
-          { x: 2, y: 5 },
-          { x: 3, y: 7 },
-          { x: 4, y: 5 },
-        ],
+          label: 'Alphalytics',
+        data: UserData,
         backgroundColor: "rgba(0,0,0,1)",
         borderColor: "rgba(0,0,0,1)",
-        tension: 0.4,
-        normalized: true,
-        parsing: false,
+       pointRadius:1,
+        parsing:{
+          xAxisKey:'date',
+          yAxisKey: 'alp'
+      }
       },
       {
         type: "line",
-        //   label: 'SP 500',
-        //   data: [{x:'2016-12-25',y:8},{x:'2016-12-26',y:2},{x:'2016-12-28',y:4},{x:'2016-12-30',y:2}],
-        data: [
-          { x: 1, y: 2 },
-          { x: 2, y: 7 },
-          { x: 3, y: 5 },
-          { x: 4, y: 4 },
-        ],
+          label: 'SP 500',
+        data: Datasp,
         backgroundColor: "rgba(128,128,128,1)",
         borderColor: "rgba(128,128,128,1)",
-        tension: 0.4,
-        normalized: true,
-        parsing: false,
-      },
-      // ,{
-      // //   label: 'Colores',
-      //   data: ColorData,
-      //   backgroundColor:
+      pointRadius:1,
+        parsing:{
+               xAxisKey:'date',
+               yAxisKey: 'sp'
+           }
+          }
+      ,{
+      //   label: 'Colores',
+        data: ColorData,
+        backgroundColor:
 
-      //   context =>{
-      //       const chart= context.chart;
-      //     //   console.log(context.chart)
-      //       const {ctx, chartArea, scales} = chart;
-      //       if(!chartArea){return null};
-      //       return getGradient(ctx, chartArea, scales)
-      //   },
-      //   borderColor:
-      //   context =>{
-      //       const chart= context.chart;
-      //     //   console.log(context.chart)
-      //       const {ctx, chartArea, scales} = chart;
-      //       if(!chartArea){return null};
-      //       return getGradient(ctx, chartArea, scales)
-      //   },
-      //   tension:0.4,
-      //   normalized:true,
-      //   parsing:{
-      //       xAxisKey:'date',
-      //       yAxisKey: 'top'
-      //   },
-      //   fill: true,
-      // }
+        context =>{
+            const chart= context.chart;
+          //   console.log(context.chart)
+            const {ctx, chartArea, scales} = chart;
+            if(!chartArea){return null};
+            return getGradient(ctx, chartArea, scales)
+        },
+        borderColor:
+        context =>{
+            const chart= context.chart;
+          //   console.log(context.chart)
+            const {ctx, chartArea, scales} = chart;
+            if(!chartArea){return null};
+            return getGradient(ctx, chartArea, scales)
+        },
+        pointRadius:0,  
+        normalized:true,
+        parsing:{
+            xAxisKey:'date',
+            yAxisKey: 'top'
+        },
+        fill: true,
+      }
     ],
   });
 
-  //   rgba(255,209,127,1) AMARILLO
-  //   rgba(255,140,140,1) ROSADO ROJIZO
-  //   rgba(255,204,204,1) ROSADO     YA NO
-  //   rgba(217,236,217,1) VERDE CLARO
-  //   rgba(140,197,140,1) VERDE OSCURO
+
+
+
+const colors =[{'index':1,'color':'rgba(255,209,127,1)'},{'index':10,'color':'rgba(255,209,127,1)'},{'index':15,'color':'rgba(255,209,127,1)'}]
 
   function getGradient(ctx, chartArea, scales) {
     const gradientBg = ctx.createLinearGradient(
@@ -204,42 +163,48 @@ function Cover() {
   console.log(UserData);
   console.log(Datasp);
   return (
-    <div className="flex items-center flex-col mb-32">
+    <div className="page-cover flex items-center flex-col mb-32 pt-24">
       <div>
         <img
-          style={{ width: 700 }}
-          className="h-auto  mb-8"
+          style={{ width: 850}}
+          className="h-auto  mb-8 block"
           src={require("./Imagen2.png")}
           alt="image description"
         ></img>
       </div>
-      <h2 className="text-4xl mb-6 font-bold ">
+
+
+      <h2 className="text-4xl text-center mb-12  font-bold px-24">
         Es un portafolio de inversión dinámico que invierte en activos del
         mercado de EEUU, buscando maximizar la rentabilidad a través del ciclo
         económico americano
       </h2>
-      <div className="flex flex-col justify-around">
-        <div style={{ width: 1200 }}>
-          <LineChart style={{ width: 1200 }} chartData={userData} />
+
+      <div className="grid md:grid-cols-12 gap:12 px-24 w-full">
+
+        <div className="col-span-7" >
+          <LineChart chartData={userData} />
         </div>
-        <div className="flex flex-col items-center">
-          <h3 className="text-3xl mb-6 font-bold w-2/7">
+
+        <div className="col-span-4 col-end-13 self-center flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-3xl shadow-2xl">
+
+          <h3 className="text-3xl text-center mb-6 font-bold ">
             Entre enero de 2007 y noviembre 2022 , el portafolio algorítmico de
             Alphalytics obtendría un retorno total de 16.4% vs 11.0% del
             Standard & Poor’s 500
           </h3>
-          <div className="flex justify-around">
-            <input type="date"></input>
 
-            <input type="date"></input>
+          <div className="flex w-full flex-wrap justify-around mb-6">
+          
+          <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5" type="date"></input>
+
+            <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5" type="date"></input>
           </div>
-          <button
-            type="button"
-            className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-          >
-            Button
-          </button>
+          
+          <button type="button" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ">VER GRÁFICO</button>
+        
         </div>
+
       </div>
     </div>
   );

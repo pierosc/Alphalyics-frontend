@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import ReactApexChart from "react-apexcharts";
+import "./TesisInversion.css";
 function TesisInversion() {
   const [state, setState] = useState({
     series: [30, 15, 55],
@@ -31,19 +32,19 @@ function TesisInversion() {
 
   return (
     <>
-      <div className="flex flex-col mb-32">
+      <div className="flex page flex-col pt-16 pb-32 px-32">
         <div>
-          <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+          <h1 class="mb-8 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
             La tesis de inversión de Alphalytics{" "}
           </h1>
-          <h2 class="text-4xl mb-6 font-bold ">
+          <h2 class="text-4xl mb-12 font-bold ">
             El portafolio tradicional “toda temporada” tiene una visión estática
             de la economía. No rebalancea los pesos de los activos a pesar de
             los cambios en el ciclo económico. Las ganancias de algunos activos
             deben contrarrestar la pérdida de otras.
           </h2>
         </div>
-        <div className="flex justify-around items-center">
+        <div className="flex justify-center flex-wrap gap-32 items-center">
           <div>
             <ReactApexChart
               options={state.options}
@@ -53,10 +54,10 @@ function TesisInversion() {
             />
           </div>
           <div>
-            <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+          <h2 class="text-4xl mb-8 font-bold ">
               Pero sabemos que:
             </h2>
-            <ul class="space-y-1 max-w-md list-disc list-inside text-gray-500 dark:text-gray-400">
+            <ul class="space-y-1 text-2xl  max-w-md list-disc list-inside text-gray-500">
               <li>
                 Las acciones caen +25% en recesiones y los treasuries son el
                 refugio durante esta fase del ciclo económico, inclusive

@@ -13,9 +13,9 @@ import Rentabilidad from "./views/Rentabilidad";
 import Invertibles from "./views/Invertibles";
 function App() {
   return (
-    <>
-      <div className="App p-24">
-        <Cover />
+    <><Cover />
+      <div className="App ">
+        
         <TesisInversion />
         <Rebalanceo />
         <Fases />
