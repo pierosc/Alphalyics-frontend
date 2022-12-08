@@ -32,7 +32,9 @@ function TesisInversion() {
 
   return (
     <>
-      <div className="flex page flex-col pt-16 pb-32 px-32">
+      <section className="-mt-32 bg-gray-50 px-4 pb-20 pt-4">
+      <div className="container mx-auto">
+      {/* <div className="flex page flex-col pt-16 pb-32 px-32"> */}
         <div>
           <h1 class="mb-8 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
             La tesis de inversión de Alphalytics{" "}
@@ -71,7 +73,9 @@ function TesisInversion() {
             </ul>
           </div>
         </div>
+      {/* </div> */}
       </div>
+      </section>  
     </>
   );
 }
