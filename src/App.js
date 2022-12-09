@@ -11,9 +11,13 @@ import Fases from "./views/Fases";
 import Cover from "./views/Cover";
 import Rentabilidad from "./views/Rentabilidad";
 import Invertibles from "./views/Invertibles";
+import Etf from "./views/Etf";
 function App() {
   return (
-    <><Cover />
+    <div className="imagen">
+    
+    
+    <Cover />
       <div className="App ">
         
         <TesisInversion />
@@ -21,9 +25,10 @@ function App() {
         <Fases />
         <Rentabilidad />
         <Invertibles />
+        <Etf/>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

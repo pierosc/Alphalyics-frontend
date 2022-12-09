@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+/* .imagen{
+  background-image: url("./assets/fondo.jpg");
+  background-attachment: fixed;
+  
+} */
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

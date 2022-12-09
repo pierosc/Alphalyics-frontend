@@ -24,39 +24,44 @@ function TesisInversion() {
           },
         },
       ],
+      legend: {
+        position: "bottom",
+      },
       fill: {
         colors: ["#375DA1", "#A7B5DB", "#4472C4"],
       },
+      colors:['#375DA1', '#A7B5DB', "#4472C4"]
     },
   });
 
   return (
     <>
-      <section className="-mt-32 bg-gray-50 px-4 pb-20 pt-4">
-      <div className="container mx-auto">
-      {/* <div className="flex page flex-col pt-16 pb-32 px-32"> */}
+      {/* <section className="-mt-32 bg-gray-50 px-4 pb-20 pt-4">
+      <div className="container mx-auto"> */}
+      <div className="flex bg-gray-200 flex-col pt-16 pb-32 md:px-32 px-6">
         <div>
-          <h1 class="mb-8 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+          <h1 class="mb-8 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl ">
             La tesis de inversión de Alphalytics{" "}
           </h1>
-          <h2 class="text-4xl mb-12 font-bold ">
+          <h2 class="md:text-4xl text-2xl mb-12 font-bold ">
             El portafolio tradicional “toda temporada” tiene una visión estática
             de la economía. No rebalancea los pesos de los activos a pesar de
             los cambios en el ciclo económico. Las ganancias de algunos activos
             deben contrarrestar la pérdida de otras.
           </h2>
         </div>
-        <div className="flex justify-center flex-wrap gap-32 items-center">
-          <div>
+        <div className=" w-full grid md:grid-cols-12 gap-6 items-center">
+          <div className="md:col-span-4 md:col-start-2 self-center items-center flex-col ">
+            <div className="items-center">
             <ReactApexChart
               options={state.options}
               series={state.series}
               type="pie"
-              width={600}
-            />
+              // width={600}
+            /></div>
           </div>
-          <div>
-          <h2 class="text-4xl mb-8 font-bold ">
+          <div class="max-w-sm p-8 items-center md:col-span-5 md:col-start-8 bg-white border border-gray-200 rounded-3xl shadow-2xl ">
+          <h2 class="md:text-4xl text-3xl mb-8 font-bold ">
               Pero sabemos que:
             </h2>
             <ul class="space-y-1 text-2xl  max-w-md list-disc list-inside text-gray-500">
@@ -75,7 +80,7 @@ function TesisInversion() {
         </div>
       {/* </div> */}
       </div>
-      </section>  
+      {/* </section>   */}
     </>
   );
 }

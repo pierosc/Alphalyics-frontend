@@ -71,7 +71,7 @@ function Cover() {
   // const handleChange = (newValue) => {
   //   setValue(newValue);
   // };
-  
+
  
   const [userData, setUserData] = useState({
     labels: UserData.map((data) => data.date),
@@ -101,7 +101,7 @@ function Cover() {
            }
           }
       ,{
-      //   label: 'Colores',
+        label: '',
         data: ColorData,
         backgroundColor:
 
@@ -157,40 +157,41 @@ const colors =[{'index':1,'color':'rgba(255,209,127,1)'},{'index':10,'color':'rg
     gradientBg.addColorStop(0.75, "rgba(255, 130, 130, 1)");
     gradientBg.addColorStop(0.75, "rgba(255, 235, 235, 1)");
     gradientBg.addColorStop(1, "rgba(255, 235, 235, 1)");
+    gradientBg.addColorStop(1, "rgba(255, 255, 255, 1)");
     return gradientBg;
   }
   console.log(alldata);
   console.log(UserData);
   console.log(Datasp);
   return (
-    <div className="page-cover flex items-center flex-col mb-32 pt-24">
+    <div className="page-cover flex items-center flex-col pb-32 pt-24">
       <div>
         <img
           style={{ width: 850}}
           className="h-auto  mb-8 block"
-          src={require("./Imagen2.png")}
+          src={require("./../assets/Imagen3.jpg")}
           alt="image description"
         ></img>
       </div>
 
 
-      <h2 className="text-4xl text-center mb-12  font-bold px-24">
+      <h2 className="md:text-4xl text-2xl text-center mb-12  font-bold px-6 md:px-24">
         Es un portafolio de inversión dinámico que invierte en activos del
         mercado de EEUU, buscando maximizar la rentabilidad a través del ciclo
         económico americano
       </h2>
 
-      <div className="grid md:grid-cols-12 gap:12 px-24 w-full">
+      <div className="grid md:grid-cols-12 gap-12 md:px-24 w-full px-6">
 
-        <div className="col-span-7" >
-          <LineChart chartData={userData} />
+        <div className="md:col-span-7 md:w-full w-full" >
+          <LineChart chartData={userData}  />
         </div>
 
-        <div className="col-span-4 col-end-13 self-center flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-3xl shadow-2xl">
+        <div className="md:col-span-4 md:col-end-13 self-center flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-3xl shadow-2xl">
 
           <h3 className="text-3xl text-center mb-6 font-bold ">
             Entre enero de 2007 y noviembre 2022 , el portafolio algorítmico de
-            Alphalytics obtendría un retorno total de 16.4% vs 11.0% del
+            Alphalytics obtendría un retorno total de 16.5% vs 11.2% del
             Standard & Poor’s 500
           </h3>
 
