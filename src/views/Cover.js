@@ -328,22 +328,38 @@ const [userData, setUserData] = useState({
           
           <button type="button" 
           onClick={
-
             async ()=>{
               await getSP500();
               await getAlp();
               await getColor();
               await getSize();
               await updatedata();
-
-              // setTimeout(() => {
-              //   updatedata()
-              // }, 3200);
             }
-
           }
-           className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ">VER GRÁFICO</button>
-        
+           className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+           >VER GRÁFICO</button>
+
+          <button type="button" 
+          onClick={
+            async ()=>{
+              await getAllSP500();
+              await getAllAlp();
+              await getAllColor();
+              size =[
+                {
+                  "date": "Jul-2021",
+                  "size": 14
+                },
+                {
+                  "date": "Nov-2022",
+                  "size": 14
+                }
+              ]
+              await updatedata();
+            }
+          }
+           className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+           >GRÁFICO GENERAL</button>
         </div>
 
       </div>
