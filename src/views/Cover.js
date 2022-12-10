@@ -1,34 +1,38 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import React from "react";
 import axios from "axios";
+import { Line } from "react-chartjs-2";
+import { Chart as ChartJS } from "chart.js/auto";
 import "./Cover.css";
-
-import LineChart from "./../components/LineChart";
-
-import Datepicker from "flowbite-datepicker/Datepicker";
-import DateRangePicker from "flowbite-datepicker/DateRangePicker";
 import { UserData } from "./../Data";
-import {  Datasp } from "./../Datasp";
-import { ColorData } from "./../Colordata";
-import { lineHeight } from "@mui/system";
-import { data } from "autoprefixer";
 
 
 function Cover() {
 
   const [alldata, setAlldata] = useState([]);
   const [alldata2, setAlldata2] = useState([]);
+  const chartReference = useRef([])
+  const [refresh, setRefresh] = useState(false)
+  const [inidata, setInidata] = useState(true)
+  const [colorsize, setColorsize] = useState([])
+  const [sp500, setSp500] = useState([])
+  const [alp, setAlp] = useState([])
+const fechainiRef = useRef('')
+const fechafinRef = useRef('')
 
-  const getData = async () => {
+  const getAllSP500 = async () => {
     await axios.get("http://127.0.0.1:8000/api/v1/mainsp/").then((response) => {
       const data = response.data;
       console.log(data);
       setAlldata(data);
+      // setTimeout(() => {
+      //   updatedata()
+      // }, 1500);
+      
     });
   };
 
-
-  const getData2 = async () => {
+  const getAllAlp = async () => {
     await axios
       .get("http://127.0.0.1:8000/api/v1/mainalp/ ")
       .then((response) => {
@@ -38,39 +42,143 @@ function Cover() {
       });
   };
 
+  const getColorSize = async () => {
+    await axios
+      .get("http://127.0.0.1:8000/api/v1/detaildcolor?start=2007-01-03&end=2022-01-05")
+      .then((response) => {
+        const data = response.data;
+        console.log(data);
+        setColorsize(data);
+      });
+  };
+
+  const getSP500 = async () => {
+    const url='http://127.0.0.1:8000/api/v1/detailsp?start='+fechainiRef.current.value+'&end='+ fechafinRef.current.value
+    await axios
+      .get(url)
+      .then((response) => {
+        const data = response.data;
+        console.log(data);
+        setAlldata(data);
+      });
+  };
+
+  const getAlp= async () => {
+    const url='http://127.0.0.1:8000/api/v1/detailalp?start='+fechainiRef.current.value+'&end='+ fechafinRef.current.value
+    await axios
+      .get(url)
+      .then((response) => {
+        const data = response.data;
+        console.log(data);
+        setAlldata2(data);
+      });
+  };
+
+
+
   useEffect(() => {
-    getData();
-    getData2()
+    // getAllSP500();
+    // getAllAlp();
+    // getColorSize();
   }, []);
 
+function toDateFormat(date){
+  const words = date.split('-');
+  console.log(words[0]);
+  console.log(words[1]);
+  // console.log(words[2]);
+  const month = 
+  words[1]==='01'?('Jan'):
+  words[1]==='02'?('Feb'):
+  words[1]==='03'?('Mar'):
+  words[1]==='04'?('Apr'):
+  words[1]==='05'?('May'):
+  words[1]==='06'?('Jun'):
+  words[1]==='07'?('Jul'):
+  words[1]==='08'?('Aug'):
+  words[1]==='09'?('Sep'):
+  words[1]==='10'?('Oct'):
+  words[1]==='11'?('Nov'):
+  ('Dec')
 
-
-  function updateConfigAsNewObject(chart) {
-    chart.options = {
-        responsive: true,
-        plugins: {
-            title: {
-                display: true,
-                text: 'Chart.js'
-            }
-        },
-        scales: {
-            x: {
-                display: true
-            },
-            y: {
-                display: true
-            }
-        }
-    };
-    chart.update();
+  const newdate= month + '-'+ words[0]
+    console.log(newdate);
+    return newdate
 }
 
-  // const [value, setValue] = React.useState(null);
 
-  // const handleChange = (newValue) => {
-  //   setValue(newValue);
-  // };
+
+function updatedata(){
+  
+  console.log(alldata)
+  console.log(alldata2)
+  console.log(alldata[0]['date'])
+  console.log(alldata[alldata.length-1]['date'])
+setUserData(  
+  {
+    labels: alldata.map((data) => data.date),
+    datasets: [
+      {
+        type: "line",
+        data: alldata2,
+        backgroundColor: "rgba(0,0,0,1)",
+        borderColor: "rgba(0,0,0,1)",
+       pointRadius:1,
+        parsing:{
+          xAxisKey:'date',
+          yAxisKey: 'alp'
+      }
+      },
+      {
+        type: "line",
+        data: alldata,
+        backgroundColor: "rgba(107,114,128,1)",
+        borderColor: "rgba(107,114,128,1)",
+      pointRadius:1,
+        parsing:{
+               xAxisKey:'date',
+               yAxisKey: 'sp'
+           }
+          }
+      ,{
+        type: "line",
+        // data:[{date:  alldata[0]['date'], colortop: 14}, {date: alldata[alldata.length-1]['date'], colortop: 14}],
+        data:UserData,
+        backgroundColor:"rgba(0,255,0,1)",
+
+        // context =>{
+        //     const chart= context.chart;
+        //   //   console.log(context.chart)
+        //     const {ctx, chartArea, scales} = chart;
+        //     if(!chartArea){return null};
+        //     return getGradient(ctx, chartArea, scales)
+        // },
+        // borderColor:
+        // context =>{
+        //     const chart= context.chart;
+        //   //   console.log(context.chart)
+        //     const {ctx, chartArea, scales} = chart;
+        //     if(!chartArea){return null};
+        //     return getGradient(ctx, chartArea, scales) 
+        // },
+        pointRadius:5,  
+        // parsing:false,
+        normalized:true,
+        parsing:{
+            xAxisKey:'date',
+            yAxisKey: 'colortop'
+        },
+        fill: true,
+      }
+    ],
+  })
+    const chart = chartReference.current.config
+            console.log(chartReference)
+            // chartReference.current.config.data.datasets[0].data = alldata;
+            chart.update();
+            setRefresh(!refresh)
+          }
+
 
  
   const [userData, setUserData] = useState({
@@ -79,7 +187,7 @@ function Cover() {
       {
         type: "line",
           label: 'Alphalytics',
-        data: UserData,
+        data: [],
         backgroundColor: "rgba(0,0,0,1)",
         borderColor: "rgba(0,0,0,1)",
        pointRadius:1,
@@ -91,9 +199,9 @@ function Cover() {
       {
         type: "line",
           label: 'SP 500',
-        data: Datasp,
-        backgroundColor: "rgba(128,128,128,1)",
-        borderColor: "rgba(128,128,128,1)",
+        data: [],
+        backgroundColor: "rgba(107,114,128,1)",
+        borderColor: "rgba(107,114,128,1)",
       pointRadius:1,
         parsing:{
                xAxisKey:'date',
@@ -102,39 +210,36 @@ function Cover() {
           }
       ,{
         label: '',
-        data: ColorData,
-        backgroundColor:
+        data: [],
+        // backgroundColor:
 
-        context =>{
-            const chart= context.chart;
-          //   console.log(context.chart)
-            const {ctx, chartArea, scales} = chart;
-            if(!chartArea){return null};
-            return getGradient(ctx, chartArea, scales)
-        },
-        borderColor:
-        context =>{
-            const chart= context.chart;
-          //   console.log(context.chart)
-            const {ctx, chartArea, scales} = chart;
-            if(!chartArea){return null};
-            return getGradient(ctx, chartArea, scales)
-        },
+        // context =>{
+        //     const chart= context.chart;
+        //     console.log(context.chart)
+        //     const {ctx, chartArea, scales} = chart;
+        //     if(!chartArea){return null};
+        //     return getGradient(ctx, chartArea, scales)
+        // },
+        // borderColor:
+        // context =>{
+        //     const chart= context.chart;
+        //   //   console.log(context.chart)
+        //     const {ctx, chartArea, scales} = chart;
+        //     if(!chartArea){return null};
+        //     return getGradient(ctx, chartArea, scales)
+        // },
         pointRadius:0,  
         normalized:true,
-        parsing:{
-            xAxisKey:'date',
-            yAxisKey: 'top'
-        },
+        parsing:false,
+        // parsing:{
+        //     xAxisKey:'date',
+        //     yAxisKey: 'alp'
+        // },
         fill: true,
       }
     ],
   });
 
-
-
-
-const colors =[{'index':1,'color':'rgba(255,209,127,1)'},{'index':10,'color':'rgba(255,209,127,1)'},{'index':15,'color':'rgba(255,209,127,1)'}]
 
   function getGradient(ctx, chartArea, scales) {
     const gradientBg = ctx.createLinearGradient(
@@ -144,25 +249,37 @@ const colors =[{'index':1,'color':'rgba(255,209,127,1)'},{'index':10,'color':'rg
       0
     );
     const percentage =
-      (scales.x.getPixelForTick(3) - chartArea.left) / chartArea.width;
-    gradientBg.addColorStop(0, "rgba(250, 242, 249, 1)");
-    gradientBg.addColorStop(0.1, "rgba(250, 242, 249, 1)");
-    gradientBg.addColorStop(0.1, "rgba(226, 234, 221, 1)");
-    gradientBg.addColorStop(0.15, "rgba(226, 234, 221, 1)");
-    gradientBg.addColorStop(0.15, "rgba(252, 233, 220, 1)");
-    gradientBg.addColorStop(0.5, "rgba(252, 233, 220, 1)");
-    gradientBg.addColorStop(0.5, "rgba(255, 130, 130, 1)");
-    // gradientBg.addColorStop(percentage, 'rgba(252, 233, 220, 1)');
-    // gradientBg.addColorStop(percentage, 'rgba(255, 130, 130, 1)');
-    gradientBg.addColorStop(0.75, "rgba(255, 130, 130, 1)");
-    gradientBg.addColorStop(0.75, "rgba(255, 235, 235, 1)");
-    gradientBg.addColorStop(1, "rgba(255, 235, 235, 1)");
-    gradientBg.addColorStop(1, "rgba(255, 255, 255, 1)");
+      (scales.x.getPixelForTick(1) - chartArea.left) / chartArea.width;
+      const percentage2 =
+      (scales.x.getPixelForTick(20) - chartArea.left) / chartArea.width;
+      const percentage3 =
+      (scales.x.getPixelForTick(38) - chartArea.left) / chartArea.width;
+
+//100%/cantidad de datos*index del cambio de dato
+//1/alldata.length
+
+//cambia color e la data 0,105,870,1489,2546,2896,3625,3900,4006
+//resultdos de porcentajes 0.026210 0.21717 0.37169 0.63554 0.72291 0.90489 0.97353 1
+// console.log((1/alldata.length * 105).toFixed(2))
+  if(alldata!==[]){
+    // gradientBg.addColorStop(0, "rgba(250, 242, 249, 1)");
+    // gradientBg.addColorStop((1/alldata.length * 105).toFixed(2), "rgba(250, 242, 249, 1)");
+    // gradientBg.addColorStop((1/alldata.length * 105).toFixed(2), "rgba(110, 110, 110, 1)");
+    // gradientBg.addColorStop((1/alldata.length * 1489).toFixed(2), "rgba(110, 110, 110, 1)");
+    // gradientBg.addColorStop((1/alldata.length * 1489).toFixed(2), "rgba(252, 0, 0, 1)");
+    // gradientBg.addColorStop((1/alldata.length * 3625).toFixed(2), "rgba(252, 0, 0, 1)");
+    // gradientBg.addColorStop((1/alldata.length * 3625).toFixed(2), "rgba(0, 0, 221, 1)");
+
+  };
+
+
     return gradientBg;
   }
-  console.log(alldata);
-  console.log(UserData);
-  console.log(Datasp);
+
+
+  // console.log(alldata.length);
+  // console.log(UserData.length);
+  // console.log(Datasp);
   return (
     <div className="page-cover flex items-center flex-col pb-32 pt-24">
       <div>
@@ -184,7 +301,25 @@ const colors =[{'index':1,'color':'rgba(255,209,127,1)'},{'index':10,'color':'rg
       <div className="grid md:grid-cols-12 gap-12 md:px-24 w-full px-6">
 
         <div className="md:col-span-7 md:w-full w-full" >
-          <LineChart chartData={userData}  />
+          <div>
+            <div className="flex justify-center gap-4 mb-2">
+              <h3 className="font-bold text-lg">Alphalytics</h3>
+              <h3 className="font-bold  text-lg text-gray-500">SP500</h3>
+            </div>
+          {/* <LineChart ref={chartReference} chartData={userData}  /> */}
+          <Line ref={chartReference} data={userData} options={{
+    plugins: {
+      title: {
+        display: false,
+      },
+      legend: {
+        display: false,
+        onClick:()=>{}
+      }
+    },
+    // animation:false
+  }}/>
+          </div>
         </div>
 
         <div className="md:col-span-4 md:col-end-13 self-center flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-3xl shadow-2xl">
@@ -197,12 +332,28 @@ const colors =[{'index':1,'color':'rgba(255,209,127,1)'},{'index':10,'color':'rg
 
           <div className="flex w-full flex-wrap justify-around mb-6">
           
-          <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5" type="date"></input>
+          <input ref={fechainiRef} defaultValue='2007-03-01' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5" type="date"></input>
 
-            <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5" type="date"></input>
+            <input ref={fechafinRef} defaultValue='2022-11-22' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5" type="date"></input>
           </div>
           
-          <button type="button" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ">VER GRÁFICO</button>
+          <button type="button" 
+          onClick={
+            // ()=>{console.log(fechainiRef)
+            //   toDateFormat(fechainiRef.current.value)
+            // }
+            ()=>{
+              getSP500()
+              getAlp()
+              setColorsize([{date:  alldata[0]['date'], colortop: 14}, {date: alldata[alldata.length-1]['date'], colortop: 14}])
+              setTimeout(() => {
+                updatedata()
+              }, 2000);
+            }
+            
+
+          }
+          class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ">VER GRÁFICO</button>
         
         </div>
 
