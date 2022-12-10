@@ -44,7 +44,8 @@ const fechafinRef = useRef('')
 
   const getColorSize = async () => {
     await axios
-      .get("http://127.0.0.1:8000/api/v1/detaildcolor?start=2007-01-03&end=2022-01-05")
+    const url='http://127.0.0.1:8000/api/v1/detaildcolor?start='+fechainiRef.current.value+'&end='+ fechafinRef.current.value
+      .get(url)
       .then((response) => {
         const data = response.data;
         console.log(data);
@@ -112,11 +113,12 @@ function updatedata(){
   
   console.log(alldata)
   console.log(alldata2)
-  console.log(alldata[0]['date'])
-  console.log(alldata[alldata.length-1]['date'])
+  // console.log(alldata[0]['date'])
+  // console.log(alldata[alldata.length-1]['date'])
 setUserData(  
   {
     labels: alldata.map((data) => data.date),
+    // {console.log(labels)},
     datasets: [
       {
         type: "line",
@@ -143,7 +145,11 @@ setUserData(
       ,{
         type: "line",
         // data:[{date:  alldata[0]['date'], colortop: 14}, {date: alldata[alldata.length-1]['date'], colortop: 14}],
-        data:UserData,
+        data:alldata.map(obj => {
+          
+          return {date:obj['date'], sp: 14};
+
+          }),
         backgroundColor:"rgba(0,255,0,1)",
 
         // context =>{
@@ -161,12 +167,12 @@ setUserData(
         //     if(!chartArea){return null};
         //     return getGradient(ctx, chartArea, scales) 
         // },
-        pointRadius:5,  
+        pointRadius:0,  
         // parsing:false,
         normalized:true,
         parsing:{
             xAxisKey:'date',
-            yAxisKey: 'colortop'
+            yAxisKey: 'sp'
         },
         fill: true,
       }
@@ -346,6 +352,11 @@ setUserData(
               getSP500()
               getAlp()
               setColorsize([{date:  alldata[0]['date'], colortop: 14}, {date: alldata[alldata.length-1]['date'], colortop: 14}])
+              // const size = alldata.map(date => {
+          
+              //   return {date, sp: 14};
+
+              //   })
               setTimeout(() => {
                 updatedata()
               }, 2000);
