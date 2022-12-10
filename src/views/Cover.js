@@ -24,7 +24,7 @@ function Cover() {
   const getAllSP500 = async () => {
     await axios.get("http://127.0.0.1:8000/api/v1/mainsp/").then((response) => {
       const data = response.data;
-      console.log(data);
+      // console.log(data);
       setAlldata(data);
       sp500=data
     });
@@ -35,7 +35,7 @@ function Cover() {
       .get("http://127.0.0.1:8000/api/v1/mainalp/ ")
       .then((response) => {
         const data = response.data;
-        console.log(data);
+        // console.log(data);
         setAlldata2(data);
         alp=data
       });
@@ -47,7 +47,7 @@ function Cover() {
       .get(url)
       .then((response) => {
         const data = response.data;
-        console.log(data);
+        // console.log(data);
         setAlldata(data);
         sp500=data
       });
@@ -59,7 +59,7 @@ function Cover() {
       .get(url)
       .then((response) => {
         const data = response.data;
-        console.log(data);
+        // console.log(data);
         setAlldata2(data);
         alp=data
       });
@@ -71,7 +71,7 @@ function Cover() {
       .get(url)
       .then((response) => {
         const data = response.data;
-        console.log(data);
+        // console.log(data);
         setColor(data);
         colors=data
       });
@@ -83,7 +83,7 @@ function Cover() {
       .get(url)
       .then((response) => {
         const data = response.data;
-        console.log(data);
+        // console.log(data);
         setColor(data);
         colors=data
       });
@@ -100,8 +100,8 @@ function Cover() {
 
 function toDateFormat(date){
   const words = date.split('-');
-  console.log(words[0]);
-  console.log(words[1]);
+  // console.log(words[0]);
+  // console.log(words[1]);
   // console.log(words[2]);
   const month = 
   words[1]==='01'?('Jan'):
@@ -118,16 +118,16 @@ function toDateFormat(date){
   ('Dec')
 
   const newdate= month + '-'+ words[0]
-    console.log(newdate);
+    // console.log(newdate);
     return newdate
 }
 
 
 
-function updatedata(){
+async function updatedata(){
   
-  console.log(sp500)
-  console.log(alp)
+  // console.log(sp500)
+  // console.log(alp)
 
 setUserData(  
   {
@@ -332,13 +332,14 @@ const [userData, setUserData] = useState({
           <button type="button" 
           onClick={
 
-            ()=>{
-              getSP500()
-              getAlp()
-              getColor()
-              setTimeout(() => {
-                updatedata()
-              }, 3200);
+            async ()=>{
+              await getSP500();
+              await getAlp();
+              await getColor();
+              await updatedata();
+              // setTimeout(() => {
+              //   updatedata()
+              // }, 3200);
             }
 
           }
