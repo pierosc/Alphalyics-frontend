@@ -21,27 +21,25 @@ function Cover() {
   const fechainiRef = useRef('')
   const fechafinRef = useRef('')
 
-  // const getAllSP500 = async () => {
-  //   await axios.get("http://127.0.0.1:8000/api/v1/mainsp/").then((response) => {
-  //     const data = response.data;
-  //     console.log(data);
-  //     setAlldata(data);
-  //     // setTimeout(() => {
-  //     //   updatedata()
-  //     // }, 1500);
-      
-  //   });
-  // };
+  const getAllSP500 = async () => {
+    await axios.get("http://127.0.0.1:8000/api/v1/mainsp/").then((response) => {
+      const data = response.data;
+      console.log(data);
+      setAlldata(data);
+      sp500=data
+    });
+  };
 
-  // const getAllAlp = async () => {
-  //   await axios
-  //     .get("http://127.0.0.1:8000/api/v1/mainalp/ ")
-  //     .then((response) => {
-  //       const data = response.data;
-  //       console.log(data);
-  //       setAlldata2(data);
-  //     });
-  // };
+  const getAllAlp = async () => {
+    await axios
+      .get("http://127.0.0.1:8000/api/v1/mainalp/ ")
+      .then((response) => {
+        const data = response.data;
+        console.log(data);
+        setAlldata2(data);
+        alp=data
+      });
+  };
 
   const getSP500 = async () => {
     const url='http://127.0.0.1:8000/api/v1/detailsp?start='+fechainiRef.current.value+'&end='+ fechafinRef.current.value
@@ -79,9 +77,25 @@ function Cover() {
       });
   };
 
+  const getAllColor = async () => {
+    const url='http://127.0.0.1:8000/api/v1/maincolor'
+    await axios
+      .get(url)
+      .then((response) => {
+        const data = response.data;
+        console.log(data);
+        setColor(data);
+        colors=data
+      });
+  };
+
   useEffect(() => {
-    // getAllSP500();
-    // getAllAlp();
+    getAllSP500();
+    getAllAlp();
+    getAllColor();
+    setTimeout(() => {
+      updatedata()
+    }, 3200);
   }, []);
 
 function toDateFormat(date){
