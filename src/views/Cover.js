@@ -18,6 +18,16 @@ function Cover() {
   var sp500
   var alp
   var colors
+  var size =[
+    {
+      "date": "Jul-2021",
+      "size": 14
+    },
+    {
+      "date": "Nov-2022",
+      "size": 14
+    }
+  ]
   const fechainiRef = useRef('')
   const fechafinRef = useRef('')
 
@@ -77,6 +87,18 @@ function Cover() {
       });
   };
 
+  const getSize = async () => {
+    const url='http://127.0.0.1:8000/api/v1/detaildcolor?start='+fechainiRef.current.value+'&end='+ fechafinRef.current.value
+    await axios
+      .get(url)
+      .then((response) => {
+        const data = response.data;
+        // console.log(data);
+        setColor(data);
+        size=data
+      });
+  };
+
   const getAllColor = async () => {
     const url='http://127.0.0.1:8000/api/v1/maincolor'
     await axios
@@ -97,31 +119,6 @@ function Cover() {
       updatedata()
     }, 3200);
   }, []);
-
-function toDateFormat(date){
-  const words = date.split('-');
-  // console.log(words[0]);
-  // console.log(words[1]);
-  // console.log(words[2]);
-  const month = 
-  words[1]==='01'?('Jan'):
-  words[1]==='02'?('Feb'):
-  words[1]==='03'?('Mar'):
-  words[1]==='04'?('Apr'):
-  words[1]==='05'?('May'):
-  words[1]==='06'?('Jun'):
-  words[1]==='07'?('Jul'):
-  words[1]==='08'?('Aug'):
-  words[1]==='09'?('Sep'):
-  words[1]==='10'?('Oct'):
-  words[1]==='11'?('Nov'):
-  ('Dec')
-
-  const newdate= month + '-'+ words[0]
-    // console.log(newdate);
-    return newdate
-}
-
 
 
 async function updatedata(){
@@ -159,7 +156,7 @@ setUserData(
       ,{
         type: "line",
         data:sp500.map(obj => {
-          return {date:obj['date'], sp: 14};
+          return {date:obj['date'], sp: size[0]['size']};
           }),
         backgroundColor:
         // "rgba(0,255,0,1)",
@@ -336,7 +333,9 @@ const [userData, setUserData] = useState({
               await getSP500();
               await getAlp();
               await getColor();
+              await getSize();
               await updatedata();
+
               // setTimeout(() => {
               //   updatedata()
               // }, 3200);
