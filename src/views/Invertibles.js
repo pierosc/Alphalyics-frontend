@@ -23,12 +23,12 @@ function Invertibles() {
           <a
             href="https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf"
             target="_blank"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
           >
             Ver más
             <svg
               aria-hidden="true"
-              class="w-4 h-4 ml-2 -mr-1"
+               className="w-4 h-4 ml-2 -mr-1"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -53,12 +53,12 @@ function Invertibles() {
           <a
             href="https://www.ishares.com/us/products/239466/?referrer=tickerSearch"
             target="_blank"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
           >
             Ver más
             <svg
               aria-hidden="true"
-              class="w-4 h-4 ml-2 -mr-1"
+               className="w-4 h-4 ml-2 -mr-1"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -83,12 +83,12 @@ function Invertibles() {
           <a
             href="https://www.ishares.com/us/products/239456/ishares-710-year-treasury-bond-etf"
             target="_blank"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
           >
             Ver más
             <svg
               aria-hidden="true"
-              class="w-4 h-4 ml-2 -mr-1"
+               className="w-4 h-4 ml-2 -mr-1"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -113,12 +113,12 @@ function Invertibles() {
           <a
             href="https://www.ishares.com/us/products/239452/?referrer=tickerSearch"
             target="_blank"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
           >
             Ver más
             <svg
               aria-hidden="true"
-              class="w-4 h-4 ml-2 -mr-1"
+               className="w-4 h-4 ml-2 -mr-1"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -142,12 +142,12 @@ function Invertibles() {
           <a
             href="https://www.invesco.com/qqq-etf/en/home.html"
             target="_blank"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
           >
             Ver más
             <svg
               aria-hidden="true"
-              class="w-4 h-4 ml-2 -mr-1"
+               className="w-4 h-4 ml-2 -mr-1"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"

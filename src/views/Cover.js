@@ -15,32 +15,33 @@ function Cover() {
   const [refresh, setRefresh] = useState(false)
   const [inidata, setInidata] = useState(true)
   const [color, setColor] = useState([])
-  const [sp500, setSp500] = useState([])
-  const [alp, setAlp] = useState([])
+  var sp500
+  var alp
+  var colors
   const fechainiRef = useRef('')
   const fechafinRef = useRef('')
 
-  const getAllSP500 = async () => {
-    await axios.get("http://127.0.0.1:8000/api/v1/mainsp/").then((response) => {
-      const data = response.data;
-      console.log(data);
-      setAlldata(data);
-      // setTimeout(() => {
-      //   updatedata()
-      // }, 1500);
+  // const getAllSP500 = async () => {
+  //   await axios.get("http://127.0.0.1:8000/api/v1/mainsp/").then((response) => {
+  //     const data = response.data;
+  //     console.log(data);
+  //     setAlldata(data);
+  //     // setTimeout(() => {
+  //     //   updatedata()
+  //     // }, 1500);
       
-    });
-  };
+  //   });
+  // };
 
-  const getAllAlp = async () => {
-    await axios
-      .get("http://127.0.0.1:8000/api/v1/mainalp/ ")
-      .then((response) => {
-        const data = response.data;
-        console.log(data);
-        setAlldata2(data);
-      });
-  };
+  // const getAllAlp = async () => {
+  //   await axios
+  //     .get("http://127.0.0.1:8000/api/v1/mainalp/ ")
+  //     .then((response) => {
+  //       const data = response.data;
+  //       console.log(data);
+  //       setAlldata2(data);
+  //     });
+  // };
 
   const getSP500 = async () => {
     const url='http://127.0.0.1:8000/api/v1/detailsp?start='+fechainiRef.current.value+'&end='+ fechafinRef.current.value
@@ -50,6 +51,7 @@ function Cover() {
         const data = response.data;
         console.log(data);
         setAlldata(data);
+        sp500=data
       });
   };
 
@@ -61,6 +63,7 @@ function Cover() {
         const data = response.data;
         console.log(data);
         setAlldata2(data);
+        alp=data
       });
   };
 
@@ -72,6 +75,7 @@ function Cover() {
         const data = response.data;
         console.log(data);
         setColor(data);
+        colors=data
       });
   };
 
@@ -108,17 +112,17 @@ function toDateFormat(date){
 
 function updatedata(){
   
-  console.log(alldata)
-  console.log(alldata2)
+  console.log(sp500)
+  console.log(alp)
 
 setUserData(  
   {
-    labels: alldata.map((data) => data.date),
+    labels: sp500.map((data) => data.date),
     // {console.log(labels)},
     datasets: [
       {
         type: "line",
-        data: alldata2,
+        data: alp,
         backgroundColor: "rgba(0,0,0,1)",
         borderColor: "rgba(0,0,0,1)",
        pointRadius:1,
@@ -129,7 +133,7 @@ setUserData(
       },
       {
         type: "line",
-        data: alldata,
+        data: sp500,
         backgroundColor: "rgba(107,114,128,1)",
         borderColor: "rgba(107,114,128,1)",
       pointRadius:1,
@@ -140,7 +144,7 @@ setUserData(
           }
       ,{
         type: "line",
-        data:alldata.map(obj => {
+        data:sp500.map(obj => {
           return {date:obj['date'], sp: 14};
           }),
         backgroundColor:
@@ -227,13 +231,7 @@ const [userData, setUserData] = useState({
       chartArea.right,
       0
     );
-    const percentage =
 
-      (scales.x.getPixelForTick(1) - chartArea.left) / chartArea.width;
-      const percentage2 =
-      (scales.x.getPixelForTick(20) - chartArea.left) / chartArea.width;
-      const percentage3 =
-      (scales.x.getPixelForTick(38) - chartArea.left) / chartArea.width;
       // console.log(color)
 //100%/cantidad de datos*index del cambio de dato
 //1/alldata.length
@@ -243,35 +241,16 @@ const [userData, setUserData] = useState({
 // console.log((1/alldata.length * 105).toFixed(2))
 
 
-  if(alldata!==[]){
+  if(sp500!==[]){
 
     // gradientBg.addColorStop(color[0].index, color[0].color);
 
-    // color.map(index => {
-    //   if (index!=0){
-    //     console.log(index)
-    //     // gradientBg.addColorStop(color[item].index, color[item-1].color);
-    //     // gradientBg.addColorStop(color[item].index, color[item].color);
-    //   }
-    // })
-    for (let x in color) {
+    for (let x in colors) {
       // ccurs_codigo += selection[x]["CCURS_CODIGO"].concat(",");
       if (x!=0){
-              gradientBg.addColorStop(color[x].index, color[x-1].color);
-        gradientBg.addColorStop(color[x].index, color[x].color);}
+              gradientBg.addColorStop(colors[x].index, colors[x-1].color);
+        gradientBg.addColorStop(colors[x].index, colors[x].color);}
     }
-
-    // gradientBg.addColorStop(color[1].index, color[0].color);
-    // gradientBg.addColorStop(color[1].index, color[1].color);
-
-    // gradientBg.addColorStop(color[2].index, color[1].color);
-    // gradientBg.addColorStop(color[2].index, color[2].color);
-
-    // gradientBg.addColorStop(color[3].index, color[2].color);
-    // gradientBg.addColorStop(color[3].index, color[3].color);
-
-    // gradientBg.addColorStop(color[4].index, color[3].color);
-    // gradientBg.addColorStop(color[4].index, color[4].color);
 
 
   };
@@ -279,11 +258,6 @@ const [userData, setUserData] = useState({
 
     return gradientBg;
   }
-
-
-  // console.log(alldata.length);
-  // console.log(UserData.length);
-  // console.log(Datasp);
   return (
     <div className="page-cover flex items-center flex-col pb-32 pt-24">
       <div>
@@ -343,27 +317,18 @@ const [userData, setUserData] = useState({
           
           <button type="button" 
           onClick={
-            // ()=>{console.log(fechainiRef)
-            //   toDateFormat(fechainiRef.current.value)
-            // }
+
             ()=>{
               getSP500()
               getAlp()
               getColor()
-              // setColorsize([{date:  alldata[0]['date'], colortop: 14}, {date: alldata[alldata.length-1]['date'], colortop: 14}])
-              // const size = alldata.map(date => {
-          
-              //   return {date, sp: 14};
-
-              //   })
               setTimeout(() => {
                 updatedata()
-              }, 2000);
+              }, 3200);
             }
-            
 
           }
-          class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ">VER GRÁFICO</button>
+           className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ">VER GRÁFICO</button>
         
         </div>
 
