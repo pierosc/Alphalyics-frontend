@@ -16,7 +16,7 @@ function TesisInversion() {
           breakpoint: 480,
           options: {
             chart: {
-              width: 200,
+              width: 300,
             },
             legend: {
               position: "bottom",
