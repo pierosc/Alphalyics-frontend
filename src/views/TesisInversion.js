@@ -51,8 +51,8 @@ function TesisInversion() {
           </h2>
         </div>
         <div className=" w-full grid md:grid-cols-12 gap-6 items-center">
-          <div className="md:col-span-4 md:col-start-2 self-center items-center flex-col ">
-            <div className="items-center">
+          <div className="md:col-span-4 md:col-start-2 self-center items-center justify-center flex-col md:block flex ">
+            <div className=" items-center ">
             <ReactApexChart
               options={state.options}
               series={state.series}
