@@ -32,7 +32,7 @@ function Cover() {
   const fechafinRef = useRef('')
 
   const getAllSP500 = async () => {
-    await axios.get("http://127.0.0.1:8000/api/v1/mainsp/").then((response) => {
+    await axios.get("https://127.0.0.1:8000/api/v1/mainsp/").then((response) => {
       const data = response.data;
       // console.log(data);
       setAlldata(data);
@@ -42,7 +42,7 @@ function Cover() {
 
   const getAllAlp = async () => {
     await axios
-      .get("http://127.0.0.1:8000/api/v1/mainalp/ ")
+      .get("https://127.0.0.1:8000/api/v1/mainalp/ ")
       .then((response) => {
         const data = response.data;
         // console.log(data);
@@ -52,7 +52,7 @@ function Cover() {
   };
 
   const getSP500 = async () => {
-    const url='http://127.0.0.1:8000/api/v1/detailsp?start='+fechainiRef.current.value+'&end='+ fechafinRef.current.value
+    const url='https://127.0.0.1:8000/api/v1/detailsp?start='+fechainiRef.current.value+'&end='+ fechafinRef.current.value
     await axios
       .get(url)
       .then((response) => {
@@ -64,7 +64,7 @@ function Cover() {
   };
 
   const getAlp= async () => {
-    const url='http://127.0.0.1:8000/api/v1/detailalp?start='+fechainiRef.current.value+'&end='+ fechafinRef.current.value
+    const url='https://127.0.0.1:8000/api/v1/detailalp?start='+fechainiRef.current.value+'&end='+ fechafinRef.current.value
     await axios
       .get(url)
       .then((response) => {
@@ -76,7 +76,7 @@ function Cover() {
   };
 
   const getColor = async () => {
-    const url='http://127.0.0.1:8000/api/v1/detailcolor?start='+fechainiRef.current.value+'&end='+ fechafinRef.current.value
+    const url='https://127.0.0.1:8000/api/v1/detailcolor?start='+fechainiRef.current.value+'&end='+ fechafinRef.current.value
     await axios
       .get(url)
       .then((response) => {
@@ -88,7 +88,7 @@ function Cover() {
   };
 
   const getSize = async () => {
-    const url='http://127.0.0.1:8000/api/v1/detaildcolor?start='+fechainiRef.current.value+'&end='+ fechafinRef.current.value
+    const url='https://127.0.0.1:8000/api/v1/detaildcolor?start='+fechainiRef.current.value+'&end='+ fechafinRef.current.value
     await axios
       .get(url)
       .then((response) => {
@@ -100,7 +100,7 @@ function Cover() {
   };
 
   const getAllColor = async () => {
-    const url='http://127.0.0.1:8000/api/v1/maincolor'
+    const url='https://127.0.0.1:8000/api/v1/maincolor'
     await axios
       .get(url)
       .then((response) => {
