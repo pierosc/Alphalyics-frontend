@@ -6,7 +6,6 @@ import { Chart as ChartJS } from "chart.js/auto";
 import "./Cover.css";
 import { UserData } from "./../Data";
 
-
 function Cover() {
 
   const [alldata, setAlldata] = useState([]);
@@ -278,7 +277,7 @@ const [userData, setUserData] = useState({
         <img
           style={{ width: 850}}
           className="h-auto  mb-8 block"
-          src={require("./../assets/Imagen3.jpg")}
+          src={require("./../assets/logo.png")}
           alt="image description"
         ></img>
       </div>
