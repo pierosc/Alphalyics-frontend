@@ -320,7 +320,7 @@ const [userData, setUserData] = useState({
           },
           title: {
             display: true,
-            text: 'Multiplo desde del 2007',
+            text: 'Múltiplo desde 2007',
             font: {
               size: 14
             }
