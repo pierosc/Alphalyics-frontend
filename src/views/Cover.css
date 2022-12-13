@@ -1,6 +1,14 @@
 .page-cover{
     background-color: rgb(255 255 255);
 }
+.logo{
+    width: 80vh;
+}
+@media (max-width: 600px) {
+.logo{
+    width: 50vh;
+}
+}
 /* 
 .text-blue-700 {
     --tw-text-opacity: 1;

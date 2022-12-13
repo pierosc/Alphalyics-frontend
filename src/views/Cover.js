@@ -278,7 +278,7 @@ const [userData, setUserData] = useState({
   }
   return (
     <div className="page-cover flex items-center flex-col pb-32 pt-24">
-      <div style={{ width: 850}}>
+      <div className="logo">
         <Logosvg/>
       </div>
 
