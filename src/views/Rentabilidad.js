@@ -43,11 +43,11 @@ function Rentabilidad() {
   return (
     <div className="flex flex-col pb-32 pt-16 bg-white">
       <div className="md:px-32 p-6">
-        <h1  className="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl ">
+        <h1  className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl ">
           Rentabilidad total anual de una inversión de US$ 1 millón
         </h1>
-        <h2  className="text-2xl md:text-4xl md:mb-16 md-8 font-bold ">
-          Incluye reinversión de dividendos
+        <h2  className="text-xl md:text-2xl md:mb-16 md-8 font-bold ">
+          Incluye reinversión de dividendos*
         </h2>
       </div>
       <div className="md:px-96 px-6">

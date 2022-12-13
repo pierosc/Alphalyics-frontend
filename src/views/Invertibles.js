@@ -2,22 +2,22 @@ import React from "react";
 import "./Invertibles.css";
 function Invertibles() {
   return (
-    <div className="pb-32 pt-16 md:px-32 px-6 page-invertibles">
-      <h1 className="mb-4 text-3xl font-extrabold tracking-tight leading-none text-white md:text-5xl ">
+    <div className="pb-32 pt-16 md:px-32 px-6 bg-gray-200">
+      <h1 className="mb-4 text-2xl font-extrabold tracking-tight leading-none  md:text-4xl ">
       Activos invertibles
       </h1>
-      <h2 className="text-2xl md:text-4xl  mb-16 font-bold text-white">
-      Alphalytics solo invierte en 5 ETFs registrados en las bolsas de MILA(Mercado Integrado Latinoamericano),  manejados por dos de los top 5 investment managers de EE.UU. BlackRock (iShares) e Invesco.
+      <h2 className="text-lg md:text-2xl mb-6 md:mb-16 font-bold ">
+      Alphalytics solo invierte en 5 ETFs registrados en las bolsas de MILA(Mercado Integrado Latinoamericano)
 
       </h2>
 
       <div className="grid md:grid-cols-3 gap-6 md:px-24 px-6" >
 
         <div className="flex flex-col justify-self-center items-center  max-w-sm p-6 bg-white border border-gray-200 rounded-3xl shadow-2xl">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-6xl ">
+          <h1 className="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl ">
             IVV
           </h1>
-          <h5 className="mb-4 md:text-3xl text-2xl font-bold tracking-tight text-gray-900 ">
+          <h5 className="mb-4 md:text-2xl text-xl font-bold tracking-tight text-gray-900 ">
             iShares Core S&P 500, replica la performance del índice S&P500.
           </h5>
           <a
@@ -43,10 +43,10 @@ function Invertibles() {
         </div>
 
         <div className="flex flex-col justify-self-center row-span-2 self-center items-center max-w-sm p-6 bg-white border border-gray-200 rounded-3xl shadow-2xl">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-6xl ">
+          <h1 className="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl  ">
             SHV
           </h1>
-          <h5 className="mb-4 md:text-3xl text-2xl font-bold tracking-tight text-gray-900 ">
+          <h5 className="mb-4 md:text-2xl text-xl font-bold tracking-tight text-gray-900 ">
             iShares Short Treasury Bond replica un índice compuesto por U.S.
             Treasury bonds con maduración menores a un año.{" "}
           </h5>
@@ -73,10 +73,10 @@ function Invertibles() {
         </div>
 
         <div className="flex flex-col  justify-self-center items-center  max-w-sm p-6 bg-white border border-gray-200 rounded-3xl shadow-2xl">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-6xl ">
+          <h1 className="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl ">
             IEF
           </h1>
-          <h5 className="mb-4 md:text-3xl text-2xl font-bold tracking-tight text-gray-900 ">
+          <h5 className="mb-4 md:text-2xl text-xl font-bold tracking-tight text-gray-900 ">
             iShares 7-10 Year Treasury Bond replica un índice compuesto por U.S.
             Treasury bonds con maduración de 7 a 10 años.{" "}
           </h5>
@@ -103,10 +103,10 @@ function Invertibles() {
         </div>
 
         <div className="flex flex-col justify-self-center items-center  max-w-sm p-6 bg-white border border-gray-200 rounded-3xl shadow-2xl">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-6xl ">
+          <h1 className="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl ">
             SHY
           </h1>
-          <h5 className="mb-4 md:text-3xl text-2xl font-bold tracking-tight text-gray-900 ">
+          <h5 className="mb-4 md:text-2xl text-xl font-bold tracking-tight text-gray-900 ">
             iShares 1-3 Year Treasury Bond replica un índice compuesto por U.S.
             Treasury bonds con maduración de 1 a 3 años.{" "}
           </h5>
@@ -133,10 +133,10 @@ function Invertibles() {
         </div>
 
         <div className="flex flex-col justify-self-center items-center  max-w-sm p-6 bg-white border border-gray-200 rounded-3xl shadow-2xl">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-6xl ">
+          <h1 className="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl ">
             QQQ
           </h1>
-          <h5 className="mb-4 md:text-3xl text-2xl font-bold tracking-tight text-gray-900 ">
+          <h5 className="mb-4 md:text-2xl text-xl font-bold tracking-tight text-gray-900 ">
             Invesco, replica la performance del índice Nasdaq -100
           </h5>
           <a

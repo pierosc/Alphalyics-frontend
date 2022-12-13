@@ -16,7 +16,7 @@ function Rebalanceo() {
           breakpoint: 480,
           options: {
             chart: {
-              width: 200,
+              width: 300,
             },
             legend: {
               position: "bottom",
@@ -46,7 +46,7 @@ function Rebalanceo() {
           breakpoint: 480,
           options: {
             chart: {
-              width: 200,
+              width: 300,
             },
             legend: {
               position: "bottom",
@@ -76,7 +76,7 @@ function Rebalanceo() {
           breakpoint: 480,
           options: {
             chart: {
-              width: 200,
+              width: 300,
             },
             legend: {
               position: "bottom",
@@ -106,7 +106,7 @@ function Rebalanceo() {
           breakpoint: 480,
           options: {
             chart: {
-              width: 200,
+              width: 300,
             },
             legend: {
               position: "bottom",
@@ -126,13 +126,11 @@ function Rebalanceo() {
 
   return (
     <> <div className="md:px-32 px-6 pt-16 bg-white">
-      <h1  className="mb-8 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl ">
-        Alphalytics rebalancea los pesos de los activos de su portafolio durante
-        la evolución del ciclo económico…
+      <h1  className="mb-8 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl ">
+      Alphalytics rebalancea los pesos de los activos de su portafolio durante la evolución del ciclo económico. 
       </h1>
-      <h2  className="md:text-4xl text-2xl mb-16 font-bold ">
-        …para evitar las caídas de las acciones durante recesiones y maximizar
-        la rentabilidad durante la fase de expansión
+      <h2  className="md:text-2xl text-xl md:mb-16 mb-6 font-bold ">
+      Así evita las caídas de las acciones durante recesiones y maximiza la rentabilidad durante la fase de expansión.
       </h2>
 
       <div className="grid md:grid-cols-4 md:gap-32 gap-6 md:pb-32 pb-6">
@@ -140,7 +138,7 @@ function Rebalanceo() {
         <div  className="flex flex-col items-center  bg-white border border-gray-200 rounded-2xl shadow-md ">
           <div className="verdeclaro  flex flex-col items-center w-full pb-8 border border-gray-200 rounded-t-2xl">
             <div  className="p-5">
-              <h4  className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              <h4  className="mb-2 md:text-2xl text-xl font-bold tracking-tight text-gray-900 ">
                 Recuperación
               </h4>
             </div>
@@ -152,11 +150,11 @@ function Rebalanceo() {
             />
           </div>
           <div  className="p-5 ">
-            <h5  className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+            <h5  className="mb-2 md:text-2xl text-xl font-bold tracking-tight text-gray-900 ">
             Modo expectante:
 
             </h5>
-            <h5  className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+            <h5  className="mb-2 md:text-2xl text-base font-bold tracking-tight text-gray-900 ">
 Reingresa a acciones a precios descontados
 
             </h5>
@@ -167,7 +165,7 @@ Reingresa a acciones a precios descontados
 
           <div className="verdeoscuro flex flex-col items-center  w-full pb-8 border border-gray-200 rounded-t-2xl">
             <div  className="p-5">
-              <h4  className="mb-2 text-2xl font-bold tracking-tight text-gray-900  ">
+              <h4  className="mb-2 md:text-2xl text-xl font-bold tracking-tight text-gray-900  ">
                 Expansión
               </h4>
             </div>
@@ -179,10 +177,10 @@ Reingresa a acciones a precios descontados
             />
           </div>
           <div  className="p-5">
-            <h5  className="mb-2 text-2xl font-bold tracking-tight text-gray-900  ">
+            <h5  className="mb-2 md:text-2xl text-xl font-bold tracking-tight text-gray-900  ">
               Modo ofensivo:
             </h5>
-            <h5  className="mb-2 text-2xl font-bold tracking-tight text-gray-900  ">
+            <h5  className="mb-2 md:text-2xl text-base font-bold tracking-tight text-gray-900  ">
   Maximiza el crecimiento del portafolio
             </h5>
           </div>
@@ -191,7 +189,7 @@ Reingresa a acciones a precios descontados
         <div  className="flex flex-col items-center  bg-white border border-gray-200 rounded-2xl shadow-md ">
           <div className="amarillo flex flex-col items-center w-full pb-8 border border-gray-200 rounded-t-2xl">
             <div  className="p-5">
-              <h4  className="mb-2 text-2xl font-bold tracking-tight text-gray-900  ">
+              <h4  className="mb-2 md:text-2xl text-xl font-bold tracking-tight text-gray-900  ">
               Desaceleración
               </h4>
             </div>
@@ -203,10 +201,10 @@ Reingresa a acciones a precios descontados
             />
           </div>
           <div  className="p-5">
-            <h5  className="mb-2 text-2xl font-bold tracking-tight text-gray-900  ">
+            <h5  className="mb-2 md:text-2xl text-xl font-bold tracking-tight text-gray-900  ">
             Modo neutro: 
             </h5>
-            <h5  className="mb-2 text-2xl font-bold tracking-tight text-gray-900  ">
+            <h5  className="mb-2 md:text-2xl text-base font-bold tracking-tight text-gray-900  ">
 Reduce volatilidad ante incertidumbre
             </h5>
           </div>
@@ -215,7 +213,7 @@ Reduce volatilidad ante incertidumbre
         <div  className="flex flex-col items-center  bg-white border border-gray-200 rounded-2xl shadow-md ">
           <div className="rosado flex flex-col items-center w-full pb-8 border border-gray-200 rounded-t-2xl">
             <div  className="p-5">
-              <h4  className="mb-2 text-2xl font-bold tracking-tight text-gray-900  ">
+              <h4  className="mb-2 md:text-2xl text-xl font-bold tracking-tight text-gray-900  ">
               Contracción
               </h4>
             </div>
@@ -227,11 +225,11 @@ Reduce volatilidad ante incertidumbre
             />
           </div>
           <div  className="p-5">
-            <h5  className="mb-2 text-2xl font-bold tracking-tight text-gray-900  ">
+            <h5  className="mb-2 md:text-2xl text-xl font-bold tracking-tight text-gray-900  ">
             Modo defensivo: 
 
             </h5>
-            <h5  className="mb-2 text-2xl font-bold tracking-tight text-gray-900  ">
+            <h5  className="mb-2 md:text-2xl text-base font-bold tracking-tight text-gray-900  ">
 Evita perder dinero en acciones 
 
             </h5>

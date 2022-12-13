@@ -5,9 +5,10 @@ import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import "./Cover.css";
 import { UserData } from "./../Data";
+import Logosvg from "../components/logo";
 
 function Cover() {
-
+  // ChartJS.defaults.scale.gridLines.drawOnChartArea = false;
   const [alldata, setAlldata] = useState([]);
   const [alldata2, setAlldata2] = useState([]);
   const chartReference = useRef([])
@@ -138,22 +139,24 @@ setUserData(
         data: alp,
         backgroundColor: "rgba(0,0,0,1)",
         borderColor: "rgba(0,0,0,1)",
-       pointRadius:1,
+       pointRadius:0,
+       borderWidth:1,
         parsing:{
           xAxisKey:'date',
           yAxisKey: 'alp'
-      }
+      },
       },
       {
         type: "line",
         data: sp500,
         backgroundColor: "rgba(107,114,128,1)",
         borderColor: "rgba(107,114,128,1)",
-      pointRadius:1,
+      pointRadius:0,
+      borderWidth:1,
         parsing:{
                xAxisKey:'date',
                yAxisKey: 'sp'
-           }
+           },
           }
       ,{
         type: "line",
@@ -178,6 +181,7 @@ setUserData(
             if(!chartArea){return null};
             return getGradient(ctx, chartArea, scales) 
         },
+        borderWidth:1,
         pointRadius:0,  
         // parsing:false,
         normalized:true,
@@ -211,7 +215,7 @@ const [userData, setUserData] = useState({
         parsing:{
           xAxisKey:'date',
           yAxisKey: 'alp'
-      }
+      },
       },
       {
         type: "line",
@@ -223,8 +227,9 @@ const [userData, setUserData] = useState({
         parsing:{
                xAxisKey:'date',
                yAxisKey: 'sp'
-           }
+           },
           }
+          
       ,{
         label: '',
         data: [],
@@ -273,17 +278,12 @@ const [userData, setUserData] = useState({
   }
   return (
     <div className="page-cover flex items-center flex-col pb-32 pt-24">
-      <div>
-        <img
-          style={{ width: 850}}
-          className="h-auto  mb-8 block"
-          src={require("./../assets/logo.png")}
-          alt="image description"
-        ></img>
+      <div style={{ width: 850}}>
+        <Logosvg/>
       </div>
 
 
-      <h2 className="md:text-4xl text-2xl text-center mb-12  font-bold px-6 md:px-24">
+      <h2 className="md:text-2xl text-xl text-center mb-12  font-bold px-6 md:px-24">
         Es un portafolio de inversión dinámico que invierte en activos del
         mercado de EEUU, buscando maximizar la rentabilidad a través del ciclo
         económico americano
@@ -294,8 +294,7 @@ const [userData, setUserData] = useState({
         <div className="md:col-span-7 md:w-full w-full" >
           <div>
             <div className="flex justify-center gap-4 mb-2">
-              <h3 className="font-bold text-lg">Alphalytics</h3>
-              <h3 className="font-bold  text-lg text-gray-500">SP500</h3>
+              <h3 className="font-bold text-center md:text-lg text-base">Retornos totales del portafolio de Alphalytics vs SP500</h3>
             </div>
           {/* <LineChart ref={chartReference} chartData={userData}  /> */}
           <Line ref={chartReference} data={userData} options={{
@@ -303,19 +302,36 @@ const [userData, setUserData] = useState({
       title: {
         display: false,
       },
+
       legend: {
         display: false,
         onClick:()=>{}
       }
     },
+    scales: {
+      x: {
+          grid: {
+              display: false
+          }
+      },
+      y: {
+          grid: {
+            display: false
+          }
+      }
+  },
     // animation:false
   }}/>
+              <div className="flex justify-center gap-4 mb-2">
+              <h3 className="font-bold md:text-lg text-base">Alphalytics</h3>
+              <h3 className="font-bold  md:text-lg text-base text-gray-500">SP500</h3>
+            </div>
           </div>
         </div>
 
         <div className="md:col-span-4 md:col-end-13 self-center flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-3xl shadow-2xl">
 
-          <h3 className="text-3xl text-center mb-6 font-bold ">
+          <h3 className="md:text-lg text-base text-center mb-6 font-bold ">
             Entre enero de 2007 y noviembre 2022 , el portafolio algorítmico de
             Alphalytics obtendría un retorno total de 16.5% vs 11.2% del
             Standard & Poor’s 500

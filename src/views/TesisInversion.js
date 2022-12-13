@@ -40,14 +40,13 @@ function TesisInversion() {
       <div className="container mx-auto"> */}
       <div className="flex bg-gray-200 flex-col pt-16 pb-32 md:px-32 px-6">
         <div>
-          <h1  className="mb-8 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl ">
+          <h1  className="mb-8 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl ">
             La tesis de inversión de Alphalytics{" "}
           </h1>
-          <h2  className="md:text-4xl text-2xl mb-12 font-bold ">
+          <h2  className="md:text-xl text-lg mb-12 font-bold ">
             El portafolio tradicional “toda temporada” tiene una visión estática
             de la economía. No rebalancea los pesos de los activos a pesar de
-            los cambios en el ciclo económico. Las ganancias de algunos activos
-            deben contrarrestar la pérdida de otras.
+            los cambios en el ciclo económico. Las ganancias de algunos activos deben contrarrestar las pérdidas de otros.
           </h2>
         </div>
         <div className=" w-full grid md:grid-cols-12 gap-6 items-center">
@@ -61,19 +60,18 @@ function TesisInversion() {
             /></div>
           </div>
           <div  className="max-w-sm p-8 items-center md:col-span-5 md:col-start-8 bg-white border border-gray-200 rounded-3xl shadow-2xl ">
-          <h2  className="md:text-4xl text-3xl mb-8 font-bold ">
+          <h2  className="md:text-lg text-base mb-4 md:mb-6 font-bold ">
               Pero sabemos que:
             </h2>
-            <ul  className="space-y-1 text-2xl  max-w-md list-disc list-inside text-gray-500">
+            <ul  className="space-y-1 text-base  max-w-md list-disc list-inside text-gray-500">
               <li>
-                Las acciones caen +25% en recesiones y los treasuries son el
-                refugio durante esta fase del ciclo económico, inclusive
-                apreciándose.
+              Las acciones caen +25% en recesiones
               </li>
               <li>
-                Los bonos corporativos rinden menos que las acciones durante
-                fases de expansión y caen durante las desaceleraciones. Su
-                efecto amortiguador del portafolio es marginal.
+              Los treasuries son el refugio durante esta fase del ciclo económico.
+              </li>
+              <li>
+              Los bonos corporativos rinden menos que las acciones durante fases de expansión y caen durante las desaceleraciones.
               </li>
             </ul>
           </div>

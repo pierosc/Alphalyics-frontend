@@ -1,13 +1,10 @@
 import React from "react";
+import SvgComponent from "../components/SvgComponent";
 
 function Footer() {
   return (
     <div>
-      <img
-        className="w-full h-auto"
-        src={require("../assets/Imagen1.jpg")}
-        alt="image description"
-      ></img>
+      <SvgComponent/>
     </div>
   );
 }
