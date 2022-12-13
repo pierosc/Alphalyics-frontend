@@ -317,6 +317,13 @@ const [userData, setUserData] = useState({
       y: {
           grid: {
             display: false
+          },
+          title: {
+            display: true,
+            text: 'Multiplo desde del 2007',
+            font: {
+              size: 14
+            }
           }
       }
   },
