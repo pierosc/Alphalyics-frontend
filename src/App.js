@@ -12,6 +12,7 @@ import Cover from "./views/Cover";
 import Rentabilidad from "./views/Rentabilidad";
 import Invertibles from "./views/Invertibles";
 import Etf from "./views/Etf";
+import Ejemplos from "./views/Ejemplos";
 function App() {
   return (
     <div className="imagen">
@@ -23,6 +24,7 @@ function App() {
         <TesisInversion />
         <Rebalanceo />
         <Fases />
+        <Ejemplos/>
         <Rentabilidad />
         <Invertibles />
         <Etf/>

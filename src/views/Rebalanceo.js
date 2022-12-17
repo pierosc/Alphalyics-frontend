@@ -133,9 +133,9 @@ function Rebalanceo() {
       Así evita las caídas de las acciones durante recesiones y maximiza la rentabilidad durante la fase de expansión.
       </h2>
 
-      <div className="grid md:grid-cols-4 md:gap-32 gap-6 md:pb-32 pb-6">
+      <div className="grid md:grid-cols-3 md:gap-32 gap-6 md:pb-32 pb-6">
 
-        <div  className="flex flex-col items-center  bg-white border border-gray-200 rounded-2xl shadow-md ">
+        {/* <div  className="flex flex-col items-center  bg-white border border-gray-200 rounded-2xl shadow-md ">
           <div className="verdeclaro  flex flex-col items-center w-full pb-8 border border-gray-200 rounded-t-2xl">
             <div  className="p-5">
               <h4  className="mb-2 md:text-2xl text-xl font-bold tracking-tight text-gray-900 ">
@@ -159,9 +159,9 @@ Reingresa a acciones a precios descontados
 
             </h5>
           </div>
-        </div>
+        </div> */}
 
-        <div  className="flex flex-col items-center  bg-white border border-gray-200 rounded-2xl shadow-md ">
+        <div  className="justify-self-center md:w-3/4  flex flex-col items-center  bg-white border border-gray-200 rounded-2xl shadow-md ">
 
           <div className="verdeoscuro flex flex-col items-center  w-full pb-8 border border-gray-200 rounded-t-2xl">
             <div  className="p-5">
@@ -186,7 +186,7 @@ Reingresa a acciones a precios descontados
           </div>
         </div>
 
-        <div  className="flex flex-col items-center  bg-white border border-gray-200 rounded-2xl shadow-md ">
+        <div  className="justify-self-center flex md:w-3/4  flex-col items-center  bg-white border border-gray-200 rounded-2xl shadow-md ">
           <div className="amarillo flex flex-col items-center w-full pb-8 border border-gray-200 rounded-t-2xl">
             <div  className="p-5">
               <h4  className="mb-2 md:text-2xl text-xl font-bold tracking-tight text-gray-900  ">
@@ -210,7 +210,7 @@ Reduce volatilidad ante incertidumbre
           </div>
         </div>
 
-        <div  className="flex flex-col items-center  bg-white border border-gray-200 rounded-2xl shadow-md ">
+        <div  className="justify-self-center md:w-3/4 flex flex-col items-center  bg-white border border-gray-200 rounded-2xl shadow-md ">
           <div className="rosado flex flex-col items-center w-full pb-8 border border-gray-200 rounded-t-2xl">
             <div  className="p-5">
               <h4  className="mb-2 md:text-2xl text-xl font-bold tracking-tight text-gray-900  ">

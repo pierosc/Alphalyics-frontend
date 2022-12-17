@@ -12,9 +12,9 @@ function Fases() {
         Porcentaje de los días de trading
       </h2>
 
-      <div className="grid md:grid-cols-4 gap-12">
+      <div className="grid md:grid-cols-3 gap-12">
 
-        <div className="flex flex-col verdeclaro items-center max-w-sm border p-6 border-gray-200 rounded-2xl shadow-2xl">
+        {/* <div className="flex flex-col verdeclaro items-center max-w-sm border p-6 border-gray-200 rounded-2xl shadow-2xl">
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-6xl  ">
             4.4%
           </h1>
@@ -22,11 +22,11 @@ function Fases() {
             El patrón de cambios en el Leading Economic Index (LEI) indica que
             la economía tocó fondo y comienza a salir de la recesión
           </h5>
-        </div>
+        </div> */}
 
-        <div className="flex flex-col verdeoscuro items-center max-w-sm border p-6 border-gray-200 rounded-2xl shadow-2xl">
+        <div className="justify-self-center flex flex-col verdeoscuro items-center max-w-sm border p-6 border-gray-200 rounded-2xl shadow-2xl">
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-6xl ">
-            69.4%
+            70.0%
           </h1>
           <h5 className="mb-2 text-xl md:text-2xl font-bold tracking-tight text-gray-900 ">
             El patrón de cambios en el LEI indican que la economía está en plena
@@ -34,9 +34,9 @@ function Fases() {
           </h5>
         </div>
 
-        <div className="flex flex-col amarillo items-center max-w-sm border p-6 border-gray-200 rounded-2xl shadow-2xl">
+        <div className="justify-self-center flex flex-col amarillo items-center max-w-sm border p-6 border-gray-200 rounded-2xl shadow-2xl">
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-6xl  ">
-            13.4%
+            10.2%
           </h1>
           <h5 className="mb-2 text-xl md:text-2xl font-bold tracking-tight text-gray-900 ">
             Los cambios negativos en el LEI o el nivel de expectativas del
@@ -44,9 +44,9 @@ function Fases() {
           </h5>
         </div>
 
-        <div className="flex flex-col rosado items-center max-w-sm border p-6 border-gray-200 rounded-2xl shadow-2xl">
+        <div className="justify-self-center flex flex-col rosado items-center max-w-sm border p-6 border-gray-200 rounded-2xl shadow-2xl">
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-6xl  ">
-            12.8%
+            19.4%
           </h1>
           <h5 className="mb-2 text-xl md:text-2xl font-bold tracking-tight text-gray-900 ">
             La magnitud de los cambios negativos en el LEI indican la llegada de

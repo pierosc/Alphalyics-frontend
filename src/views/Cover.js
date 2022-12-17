@@ -277,26 +277,33 @@ const [userData, setUserData] = useState({
     return gradientBg;
   }
   return (
-    <div className="page-cover flex items-center flex-col pb-32 pt-24">
+    <div className="page-cover flex items-center flex-col pb-32 pt-4">
       <div className="logo">
         <Logosvg/>
       </div>
 
 
-      <h2 className="md:text-2xl text-xl text-center mb-12  font-bold px-6 md:px-24">
-        Es un portafolio de inversión dinámico que invierte en activos del
-        mercado de EEUU, buscando maximizar la rentabilidad a través del ciclo
-        económico americano
+      <h2 className="md:text-2xl text-xl text-center   font-bold px-6 md:px-24">
+      Es un portafolio de inversión dinámico que invierte en activos del mercado de EEUU, buscando maximizar la rentabilidad a través del ciclo económico americano
+
       </h2>
 
-      <div className="grid md:grid-cols-12 gap-12 md:px-24 w-full px-6">
+      <div className="md:flex md:flex-col md:px-24 w-full px-6 justify-center ">
 
-        <div className="md:col-span-7 md:w-full w-full" >
+      <div className="grid justify-self-end">
+        <img
+          className="h-auto block  md:w-3/5 w-full justify-self-center"
+          src={require("./../assets/fechageneral.png")}
+          alt="image description"
+        ></img>
+      </div>
+
+        {/* <div className=" md:w-full w-full" >
           <div>
             <div className="flex justify-center gap-4 mb-2">
               <h3 className="font-bold text-center md:text-lg text-base">Retornos totales del portafolio de Alphalytics vs SP500</h3>
             </div>
-          {/* <LineChart ref={chartReference} chartData={userData}  /> */}
+      
           <Line ref={chartReference} data={userData} options={{
     plugins: {
       title: {
@@ -327,22 +334,25 @@ const [userData, setUserData] = useState({
           }
       }
   },
-    // animation:false
+   
   }}/>
               <div className="flex justify-center gap-4 mb-2">
-              <h3 className="font-bold md:text-lg text-base">Alphalytics</h3>
-              <h3 className="font-bold  md:text-lg text-base text-gray-500">SP500</h3>
+              <h3 className="font-bold md:text-lg text-base">- Alphalytics</h3>
+              <h3 className="font-bold  md:text-lg text-base text-gray-500">- SP500</h3>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className="md:col-span-4 md:col-end-13 self-center flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-3xl shadow-2xl">
 
-          <h3 className="md:text-lg text-base text-center mb-6 font-bold ">
-            Entre enero de 2007 y noviembre 2022 , el portafolio algorítmico de
-            Alphalytics obtendría un retorno total de 16.5% vs 11.2% del
-            Standard & Poor’s 500
+        
+        <h3 className="md:text-lg text-base text-center mt-6 font-bold ">
+        Entre enero de 2007 y noviembre 2022 , el portafolio algorítmico de Alphalytics obtendría un retorno total de 16.0% vs 11.1% del Standard & Poor’s 500   
+
           </h3>
+
+        {/* <div className="md:col-span-4 md:col-end-13 self-center flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-3xl shadow-2xl">
+
+          
 
           <div className="flex w-full flex-wrap justify-around mb-6">
           
@@ -386,7 +396,7 @@ const [userData, setUserData] = useState({
           }
            className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
            >GRÁFICO GENERAL</button>
-        </div>
+        </div> */}
 
       </div>
     </div>
