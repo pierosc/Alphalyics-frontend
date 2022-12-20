@@ -1,6 +1,19 @@
 import React from 'react'
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Ejemplos() {
+  const [listi, setList] = useState([]);
+
+  useEffect(async () => {
+    await axios.get("https://alphalytics.pe/api/v1/img/").then((response) => {
+      const data = response.data;
+      console.log(data)
+      console.log(data['image1'])
+      setList(data)
+    });
+    console.log("loaded");
+ }, []);
   return (
     <div className='md:pb-12 pb-8 bg-white md:pt-16 pt-8 md:px-48 px-6'>
       <h1 className="md:mb-16 mb-6 text-2xl font-extrabold tracking-tight leading-none  text-gray-900 md:text-4xl ">
@@ -12,7 +25,7 @@ function Ejemplos() {
         <img
           
           className="h-auto block w-full"
-          src={require("./../assets/fechainicial.png")}
+          src={listi['image2']}
           alt="image description"
         ></img>
       </div>
@@ -41,7 +54,7 @@ function Ejemplos() {
         <div>
         <img
           className="h-auto w-full block"
-          src={require("./../assets/fechafinal.png")}
+          src={listi['image3']}
           alt="image description"
         ></img>
       </div></div>

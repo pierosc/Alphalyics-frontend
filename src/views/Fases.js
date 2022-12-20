@@ -36,7 +36,7 @@ function Fases() {
 
         <div className="justify-self-center flex flex-col amarillo items-center max-w-sm border p-6 border-gray-200 rounded-2xl shadow-2xl">
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-6xl  ">
-            10.2%
+            10.6%
           </h1>
           <h5 className="mb-2 text-xl md:text-2xl font-bold tracking-tight text-gray-900 ">
             Los cambios negativos en el LEI o el nivel de expectativas del

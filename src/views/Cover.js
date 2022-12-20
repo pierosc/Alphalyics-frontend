@@ -10,11 +10,13 @@ import Logosvg from "../components/logo";
 function Cover() {
   // ChartJS.defaults.scale.gridLines.drawOnChartArea = false;
   const [alldata, setAlldata] = useState([]);
+  const [allImages, setImages] = useState([]);
   const [alldata2, setAlldata2] = useState([]);
   const chartReference = useRef([])
   const [refresh, setRefresh] = useState(false)
   const [inidata, setInidata] = useState(true)
   const [color, setColor] = useState([])
+  var images
   var sp500
   var alp
   var colors
@@ -30,6 +32,18 @@ function Cover() {
   ]
   const fechainiRef = useRef('')
   const fechafinRef = useRef('')
+  const [listi, setList] = useState([]);
+
+  useEffect(async () => {
+    await axios.get("https://alphalytics.pe/api/v1/img/").then((response) => {
+      const data = response.data;
+      console.log(data)
+      console.log(data['image1'])
+      setList(data)
+    });
+    console.log("loaded");
+ }, []);
+
 
   const getAllSP500 = async () => {
     await axios.get("https://alphalytics.pe/api/v1/mainsp/").then((response) => {
@@ -111,19 +125,7 @@ function Cover() {
       });
   };
 
-  useEffect(async () => {
-    // await getAllSP500()
-    await Promise.all([getAllSP500(), getAllAlp(), getAllColor()]);
-    // await getAllSP500();
-    // await getAllAlp();
-    // await getAllColor();
-    await updatedata()
-    // setTimeout(() => {
-    //   updatedata()
-    // }, 3200);
-  }, []);
-
-
+  
 async function updatedata(){
   
   // console.log(sp500)
@@ -293,7 +295,8 @@ const [userData, setUserData] = useState({
       <div className="grid justify-self-end">
         <img
           className="h-auto block  md:w-3/5 w-full justify-self-center"
-          src={require("./../assets/fechageneral.png")}
+          // src={require("./../assets/fechageneral.png")}
+          src = {listi['image1']}
           alt="image description"
         ></img>
       </div>
