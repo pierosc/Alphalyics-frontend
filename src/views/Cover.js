@@ -37,11 +37,8 @@ function Cover() {
   useEffect(async () => {
     await axios.get("https://alphalytics.pe/api/v1/img/").then((response) => {
       const data = response.data;
-      console.log(data)
-      console.log(data['image1'])
       setList(data)
     });
-    console.log("loaded");
  }, []);
 
 

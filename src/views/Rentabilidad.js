@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect, useRef, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -6,6 +7,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import axios from "axios";
+import { gridRowsIdToIdLookupSelector } from "@mui/x-data-grid";
 
 function createData(col1, col2, col3, col4, col5, col6, col7) {
   return { col1, col2, col3, col4, col5, col6, col7 };
@@ -40,6 +43,32 @@ const rows = [
 ];
 
 function Rentabilidad() {
+  const [table, setTable] = useState([]);
+  
+  useEffect(async () => {
+    await axios.get("https://alphalytics.pe/api/v1/table/").then((response) => {
+      const data = response.data;
+      setTable(data)
+    });
+  }, []);
+
+  if(table){
+    if (table['last_row_2022']){
+      rows.pop()
+      let arra_tab1 = table['last_row_2022'].split(';')
+      console.log(arra_tab1)
+      rows.push(createData(arra_tab1[0], arra_tab1[1], arra_tab1[2], arra_tab1[3], arra_tab1[4], arra_tab1[5], arra_tab1[6]))
+    }
+
+    if (table['last_row_2023']){
+      let arra_tab2 = table['last_row_2023'].split(';')
+      console.log(arra_tab2)
+      // rows.push({ col1: arra_tab2[0], col2: arra_tab2[1],col3: arra_tab2[2],col4: arra_tab2[3],col5: arra_tab2[4],col6: arra_tab2[5],col7: arra_tab2[6] })
+      rows.push(createData(arra_tab2[0], arra_tab2[1], arra_tab2[2], arra_tab2[3], arra_tab2[4], arra_tab2[5], arra_tab2[6]))
+    }
+    
+  }
+  console.log(rows)
   return (
     <div className="flex flex-col pb-32 md:pt-16 pt-6 bg-white">
       <div className="md:px-32 p-6">
