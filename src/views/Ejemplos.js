@@ -32,7 +32,7 @@ function Ejemplos() {
       </div>
       <div className='mb-6'>
       <h2  className="md:text-2xl text-base self-center md:px-32 px-6 py-4 font-bold md:leading-none leading-4  ">
-      Como resultado, Alphalytics evita la pérdida durante el periodo de contracción y comienza el periodo de expansión desde una base más alta
+      En el 2007, el algoritmo prevé la desaceleración y contracción, evitando la pérdida de +50% que se dio durante La Gran Recesión
         </h2>
         {/* <h2  className="md:text-2xl text-base self-center md:px-32 px-6 py-4 font-bold ">
         En el 2007, el algoritmo prevé la desaceleración y contracción, evitando la pérdida de +50% que se dio durante La Gran Recesión 
