@@ -16,7 +16,7 @@ function TesisInversion() {
           breakpoint: 480,
           options: {
             chart: {
-              width: 300,
+              width: 340,
             },
             legend: {
               position: "bottom",
@@ -49,7 +49,7 @@ function TesisInversion() {
             los cambios en el ciclo económico. Las ganancias de algunos activos deben contrarrestar las pérdidas de otros.
           </h2>
         </div>
-        <div className=" w-full grid md:grid-cols-12 gap-6 items-center">
+        <div className=" w-full md:grid md:grid-cols-12 gap-6 items-center">
           <div className="md:col-span-4 md:col-start-2 self-center items-center justify-center flex-col md:block flex ">
             <div className=" items-center ">
             <ReactApexChart
@@ -59,11 +59,11 @@ function TesisInversion() {
               // width={600}
             /></div>
           </div>
-          <div  className="max-w-sm p-8 items-center md:col-span-5 md:col-start-8 bg-white border border-gray-200 rounded-3xl shadow-2xl ">
+          <div  className="md:mt-0 mt-6 p-8 items-center md:col-span-5 md:col-start-8 bg-white border border-gray-200 rounded-3xl shadow-2xl self-center">
           <h2  className="md:text-lg text-base mb-4 md:mb-6 font-bold ">
               Pero sabemos que:
             </h2>
-            <ul  className="space-y-1 text-base  max-w-md list-disc list-inside text-gray-500">
+            <ul  className="space-y-1 text-base   list-disc list-inside text-gray-500">
               <li>
               Las acciones caen +25% en recesiones
               </li>

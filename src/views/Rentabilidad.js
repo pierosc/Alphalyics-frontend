@@ -41,7 +41,7 @@ const rows = [
 
 function Rentabilidad() {
   return (
-    <div className="flex flex-col pb-32 pt-16 bg-white">
+    <div className="flex flex-col pb-32 md:pt-16 pt-6 bg-white">
       <div className="md:px-32 p-6">
         <h1  className="mb-4 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl ">
           Rentabilidad total anual de una inversión de US$ 1 millón
@@ -54,7 +54,7 @@ function Rentabilidad() {
         {/* <div className=" border border-gray-200  shadow-2xl"> */}
         <Paper elevation={24}>
       <TableContainer >
-        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+        <Table  size="small" aria-label="a dense table">
           <TableHead sx={{backgroundColor: 'black', color:'white'}}>
             <TableRow sx={{color:'white'}}>
               <TableCell sx={{color:'white'}} align="center" colSpan={3}></TableCell>
