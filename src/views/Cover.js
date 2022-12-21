@@ -280,8 +280,12 @@ const [userData, setUserData] = useState({
   }
   return (
     <div className="page-cover flex items-center flex-col pb-32 pt-4">
-      <div className="logo">
-        <Logosvg/>
+      <div className="logo grid md:grid-cols-12">
+        <div className="md:col-span-11">
+        <Logosvg/></div>
+        <a className="md:col-span-1 self-center justify-self-center" href="https://www.linkedin.com/newsletters/marvelytics-6904452811946622976/">
+        <button type="button" src='' class="md:col-span-1 self-center justify-self-center text-white bg-black hover:bg-slate-600 focus:outline-none focus:ring-4  font-medium rounded-full md:text-sm text-xs md:px-5 px-3 md:py-2.5 p-1.5 text-center mr-2 mb-2 ">Blog</button>
+        </a>
       </div>
 
 
@@ -301,51 +305,6 @@ const [userData, setUserData] = useState({
         ></img>
       </div>
 
-        {/* <div className=" md:w-full w-full" >
-          <div>
-            <div className="flex justify-center gap-4 mb-2">
-              <h3 className="font-bold text-center md:text-lg text-base">Retornos totales del portafolio de Alphalytics vs SP500</h3>
-            </div>
-      
-          <Line ref={chartReference} data={userData} options={{
-    plugins: {
-      title: {
-        display: false,
-      },
-
-      legend: {
-        display: false,
-        onClick:()=>{}
-      }
-    },
-    scales: {
-      x: {
-          grid: {
-              display: false
-          }
-      },
-      y: {
-          grid: {
-            display: false
-          },
-          title: {
-            display: true,
-            text: 'Múltiplo desde 2007',
-            font: {
-              size: 14
-            }
-          }
-      }
-  },
-   
-  }}/>
-              <div className="flex justify-center gap-4 mb-2">
-              <h3 className="font-bold md:text-lg text-base">- Alphalytics</h3>
-              <h3 className="font-bold  md:text-lg text-base text-gray-500">- SP500</h3>
-            </div>
-          </div>
-        </div> */}
-
 
         
         <h3 className="md:text-lg text-base text-center mt-6 font-bold ">
@@ -353,53 +312,6 @@ const [userData, setUserData] = useState({
 
           </h3>
 
-        {/* <div className="md:col-span-4 md:col-end-13 self-center flex flex-col items-center max-w-sm p-6 bg-white border border-gray-200 rounded-3xl shadow-2xl">
-
-          
-
-          <div className="flex w-full flex-wrap justify-around mb-6">
-          
-          <input ref={fechainiRef} defaultValue='2007-03-01' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5" type="date"></input>
-
-            <input ref={fechafinRef} defaultValue='2022-11-22' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5" type="date"></input>
-          </div>
-          
-          <button type="button" 
-          onClick={
-            async ()=>{
-              // await getSP500();
-              // await getAlp();
-              // await getColor();
-              // await getSize();
-              await Promise.all([getSP500(), getAlp(), getColor(), getSize()]);
-              await updatedata();
-            }
-          }
-           className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
-           >VER GRÁFICO</button>
-
-          <button type="button" 
-          onClick={
-            async ()=>{
-              await getAllSP500();
-              await getAllAlp();
-              await getAllColor();
-              size =[
-                {
-                  "date": "Jul-2021",
-                  "size": 14
-                },
-                {
-                  "date": "Nov-2022",
-                  "size": 14
-                }
-              ]
-              await updatedata();
-            }
-          }
-           className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
-           >GRÁFICO GENERAL</button>
-        </div> */}
 
       </div>
     </div>

@@ -45,7 +45,7 @@ function Ejemplos() {
         </div>
         
         <h1 className="md:mb-16 md:mt-20 mb-6 text-2xl font-extrabold tracking-tight leading-none  text-gray-900 md:text-4xl ">
-        El algoritmo detecta una desaceleración en la economía y la volatilidad en el mercado, pasándose de acciones a treasuries 
+        Antes del Covid, el algoritmo ya había detectado la desaceleración de la economía
         </h1>
         <div className='md:grid md:grid-cols-2 flex flex-col items-center'>
         <div>
