@@ -33,14 +33,24 @@ function Cover() {
   const fechainiRef = useRef('')
   const fechafinRef = useRef('')
   const [listi, setList] = useState([]);
+  const [text, setText] = useState([]);
+
 
   useEffect(async () => {
     await axios.get("https://alphalytics.pe/api/v1/img/").then((response) => {
       const data = response.data;
       setList(data)
     });
- }, []);
+  }, []);
 
+
+   useEffect(async () => {
+     await axios.get("https://alphalytics.pe/api/v1/text/").then((response) => {
+       const data = response.data;
+       setText(data)
+     });
+  }, []);
+   
 
   const getAllSP500 = async () => {
     await axios.get("https://alphalytics.pe/api/v1/mainsp/").then((response) => {
@@ -287,7 +297,7 @@ const [userData, setUserData] = useState({
 
 
       <h2 className="md:text-2xl text-xl text-center   font-bold px-6 md:px-24">
-      Es un portafolio de inversión dinámico que invierte en activos del mercado de EEUU, buscando maximizar la rentabilidad a través del ciclo económico americano
+        Es un portafolio de inversión dinámico que invierte en activos del mercado de EEUU, buscando maximizar la rentabilidad a través del ciclo económico americano
 
       </h2>
 
@@ -305,9 +315,9 @@ const [userData, setUserData] = useState({
 
         
         <h3 className="md:text-lg text-base text-center mt-6 font-bold ">
-        Entre enero de 2007 y noviembre 2022 , el portafolio algorítmico de Alphalytics obtendría un retorno total de 16.0% vs 11.1% del Standard & Poor’s 500   
+            {text['text1']}
 
-          </h3>
+        </h3>
 
 
       </div>
